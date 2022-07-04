@@ -32,9 +32,27 @@ do
     echo $Today >> log$i/log$i.txt
 done
 fi
-fi
 if [ "$1" == "--init" ] || [ "$1" == "-i" ];
 then
     git clone https://github.com/dsw47258/lab_4.git
     expoty PATH="$PWD:$PATH" 
  
+fi
+if [ "$1" == "--error" ]  [ "$1" == "-e" ] && [ -n "$2" ];
+ then
+    for i in $(seq $2); 
+        do
+            mkdir -p error$i 
+            echo "error$i.txt" >> error$i/error$i.txt
+            echo $0 >> error$i/error$i.txt
+            echo $Today >> error$i/error$i.txt
+    done
+elif [ "$1" == "--errors" ]  [ "$1" == "-e" ];
+ then
+    for i in $(seq 100); 
+        do
+            mkdir -p error$i 
+            echo "error$i.txt" >> error$i/error$i.txt
+            echo $0 >> error$i/error$i.txt
+            echo $Today >> error$i/error$i.txt
+    done
